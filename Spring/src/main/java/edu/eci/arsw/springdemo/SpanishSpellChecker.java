@@ -7,7 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 
 
-@Service
+
 public class SpanishSpellChecker implements SpellChecker {
 
 	@Override
@@ -19,3 +19,4 @@ public class SpanishSpellChecker implements SpellChecker {
         
         
 }
+

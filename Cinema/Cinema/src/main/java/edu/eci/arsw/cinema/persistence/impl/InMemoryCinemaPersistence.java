@@ -15,14 +15,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author cristian
  */
+@Service
 public class InMemoryCinemaPersistence implements CinemaPersitence{
     
     private final Map<String,Cinema> cinemas=new HashMap<>();
+    
 
     public InMemoryCinemaPersistence() {
         //load stub data
@@ -38,14 +41,31 @@ public class InMemoryCinemaPersistence implements CinemaPersitence{
 
     @Override
     public void buyTicket(int row, int col, String cinema, String date, String movieName) throws CinemaException {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        //throw new UnsupportedOperationException("Not supported yet.");
+        Cinema c=cinemas.get(cinema);
+        CinemaFunction cf1 = null;
+        for(CinemaFunction cf:c.getFunctions()){
+            if(cf.getMovie().equals(movieName) && cf.getDate()==date){
+                cf1=cf;
+                break;
+            }
+        }
+        cf1.buyTicket(row, col);
     }
 
     @Override
     public List<CinemaFunction> getFunctionsbyCinemaAndDate(String cinema, String date) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        List<CinemaFunction> funciones = null;
+        Cinema c=cinemas.get(cinema);
+        for(CinemaFunction cf:c.getFunctions()){
+            if(cf.getDate()==date){
+                funciones.add(cf);
+                
+            }
+        }
+        return funciones;
+        //throw new UnsupportedOperationException("Not supported yet.");
     }
-
     @Override
     public void saveCinema(Cinema c) throws CinemaPersistenceException {
         if (cinemas.containsKey(c.getName())){

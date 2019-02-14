@@ -13,6 +13,7 @@ import java.util.List;
  *
  * @author cristian
  */
+
 public interface CinemaPersitence {
     
     /**
