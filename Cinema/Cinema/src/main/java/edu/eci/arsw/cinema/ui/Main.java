@@ -4,15 +4,19 @@
  * and open the template in the editor.
  */
 package edu.eci.arsw.cinema.ui;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import edu.eci.arsw.cinema.services.CinemaServices;
-//import org.springframework.boot.SpringApplication;
-//import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 /**
  *
  * @author 2108263
  */
 public class Main {
-    public static void main(String[] args) {
-//		SpringApplication.run(CinemaServices.class, args);
+    public static void main(String[] args) {		
+    	ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+    	CinemaServices cs = ac.getBean(CinemaServices.class);
+        //System.out.println(cs);
 	}
 }
