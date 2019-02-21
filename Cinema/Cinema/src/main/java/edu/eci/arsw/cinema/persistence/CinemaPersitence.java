@@ -7,6 +7,8 @@ package edu.eci.arsw.cinema.persistence;
 
 import edu.eci.arsw.cinema.model.Cinema;
 import edu.eci.arsw.cinema.model.CinemaFunction;
+import edu.eci.arsw.cinema.model.Movie;
+
 import java.util.List;
 
 /**
@@ -36,6 +38,26 @@ public interface CinemaPersitence {
      * @return the list of the functions of the cinema in the given date
      */
     public List<CinemaFunction> getFunctionsbyCinemaAndDate(String cinema, String date);
+    
+    /**
+     * @param cinema cinema´s name
+     * @param date date
+     * @param genre moviegenre
+     * 
+     * return the list of the movies of the cinema in the given date and genre
+     */
+    
+    public List<Movie> getFunctionsbyCinemaDateAndGenre(String cinema, String date,String genre);
+    
+    
+    /**
+     * @param cinema cinema´s name
+     * @param date date
+     * @param EmptySeats int
+     * 
+     * return the list of the movies of the cinema in the given date and EmptySeats
+     */
+    public List<Movie> getFunctionsbyCinemaDateAndEmptySeats(String cinema, String date,int EmptySeats);
     
     /**
      * 

@@ -42,6 +42,18 @@ public class CinemaFunction {
         }
     }
     
+    public int EmptySeats() {
+    	int cont=0;
+    	for (int i=0;i<seats.size();i++) {
+    		for(int j=0;j<seats.get(i).size();j++) {
+    			if(seats.get(i).get(j).equals(true)) {
+    				cont ++;
+    			}
+    		}
+    	}
+    	return cont;   	
+    }
+    
     public List<List<Boolean>> getSeats() {
         return this.seats;
     }

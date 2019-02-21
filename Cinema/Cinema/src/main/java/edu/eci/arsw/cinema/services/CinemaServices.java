@@ -7,6 +7,7 @@ package edu.eci.arsw.cinema.services;
 
 import edu.eci.arsw.cinema.model.Cinema;
 import edu.eci.arsw.cinema.model.CinemaFunction;
+import edu.eci.arsw.cinema.model.Movie;
 import edu.eci.arsw.cinema.persistence.CinemaException;
 import edu.eci.arsw.cinema.persistence.CinemaPersistenceException;
 import edu.eci.arsw.cinema.persistence.CinemaPersitence;
@@ -54,8 +55,16 @@ public class CinemaServices {
         //throw new UnsupportedOperationException("Not supported yet.");
         return cps.getFunctionsbyCinemaAndDate(cinema, date);
     }
+    
+    public List<Movie> getFunctionsbyCinemaDateAndGenre(String cinema, String date,String genre){
+    	return cps.getFunctionsbyCinemaDateAndGenre(cinema, date, genre);
+    }
 
-	
+    public List<Movie> getFunctionsbyCinemaDateAndEmptySeats(String cinema, String date,int EmptySeats){
+    	return cps.getFunctionsbyCinemaDateAndEmptySeats(cinema, date, EmptySeats);
+    }
+    
+    	
 
 
 }
